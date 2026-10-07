@@ -8,12 +8,6 @@ import { campaignService, type Campaign, type CampaignPost } from '@/services/ca
 import { usePayPalScript } from '@/hooks/usePayPalScript';
 import { PATHS } from '@/routes/paths';
 
-declare global {
-  interface Window {
-    paypal?: any;
-  }
-}
-
 export default function CampaignDetailPage() {
   const { id } = useParams();
   const [campaign, setCampaign] = useState<Campaign | null>(null);

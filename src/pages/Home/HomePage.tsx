@@ -50,7 +50,7 @@ export function HomePage() {
       </Box>
 
       <Grid container spacing={3} sx={{ mb: 6 }}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Box sx={{ color: 'primary.main', mb: 1 }}>
@@ -77,7 +77,7 @@ export function HomePage() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Box sx={{ color: 'primary.main', mb: 1 }}>

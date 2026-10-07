@@ -4,7 +4,6 @@ import {
   Box, Typography, TextField, Button, Card, CardContent, MenuItem, Alert,
 } from '@mui/material';
 import { campaignService } from '@/services/campaign.service';
-import { PATHS } from '@/routes/paths';
 
 const SERVICES = [
   { value: 'kick_auto_clipper', label: 'Kick Auto-Clipper', hint: 'Kick streamer VODs or clip channels' },
