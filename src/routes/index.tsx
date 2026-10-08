@@ -11,6 +11,7 @@ import { OAuthCallbackPage } from '@/pages/Auth/OAuthCallbackPage';
 import CampaignsPage from '@/pages/Campaigns/CampaignsPage';
 import NewCampaignPage from '@/pages/Campaigns/NewCampaignPage';
 import CampaignDetailPage from '@/pages/Campaigns/CampaignDetailPage';
+import { TermsPage, PrivacyPage, RefundPage, ContactPage } from '@/pages/Legal/LegalPages';
 import { SettingsPage } from '@/pages/Settings/SettingsPage';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
@@ -72,6 +73,24 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+
+  // Legal pages (public, no layout)
+  {
+    path: '/terms',
+    element: <TermsPage />,
+  },
+  {
+    path: '/privacy',
+    element: <PrivacyPage />,
+  },
+  {
+    path: '/refund',
+    element: <RefundPage />,
+  },
+  {
+    path: '/contact',
+    element: <ContactPage />,
   },
 
   // 404 page (no layout)

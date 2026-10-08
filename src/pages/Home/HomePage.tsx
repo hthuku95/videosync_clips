@@ -12,6 +12,7 @@ import {
   CheckCircle as CheckCircleIcon,
 } from '@mui/icons-material';
 import { PATHS } from '@/routes/paths';
+import { Footer } from '@/components/common/Footer';
 
 /** Public landing for VideoSync Clips — Kick + Twitch daily clip campaigns. */
 export function HomePage() {
@@ -24,6 +25,7 @@ export function HomePage() {
   }, [params]);
 
   return (
+    <>
     <Container maxWidth="lg">
       <Box sx={{ py: { xs: 4, md: 8 }, textAlign: 'center' }}>
         <Chip
@@ -125,5 +127,7 @@ export function HomePage() {
         </CardContent>
       </Card>
     </Container>
+    <Footer appName="VideoSync Clips" />
+  </>
   );
 }
