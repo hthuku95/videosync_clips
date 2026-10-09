@@ -12,9 +12,12 @@ interface PaySpecAccept {
   scheme?: string;
   network?: string;
   max_amount_required?: string;
+  maxAmountRequired?: string;
   pay_to?: string;
+  payTo?: string;
   asset?: string;
   max_timeout_seconds?: number;
+  maxTimeoutSeconds?: number;
 }
 
 function b64encodeJson(obj: unknown): string {
@@ -98,10 +101,10 @@ export function UsdcPayDialog({
       setStatus('Fetching payment details…');
       const spec = await campaignService.paySpec(campaignId);
       const accept: PaySpecAccept | undefined = (spec as any)?.accepts?.[0];
-      const to: string | undefined = accept?.pay_to;
-      const value: string | undefined = accept?.max_amount_required;
+      const to: string | undefined = accept?.payTo || accept?.pay_to;
+      const value: string | undefined = accept?.maxAmountRequired || accept?.max_amount_required;
       const asset: string = accept?.asset || USDC_BASE;
-      const timeoutSecs: number = accept?.max_timeout_seconds || 300;
+      const timeoutSecs: number = accept?.maxTimeoutSeconds || accept?.max_timeout_seconds || 300;
       if (!to || !value) throw new Error('Payment details missing — please try again.');
 
       // 4. USDC balance check (fail fast with a clear message)

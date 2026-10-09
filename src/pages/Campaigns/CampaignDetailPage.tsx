@@ -156,10 +156,8 @@ function PayDialog({
     campaignService
       .paySpec(campaignId)
       .then((spec: any) => {
-        const cents =
-          spec?.accepts?.[0]?.max_amount_required != null
-            ? Number(spec.accepts[0].max_amount_required) / 1e4
-            : 19900;
+        const atomic = spec?.accepts?.[0]?.maxAmountRequired ?? spec?.accepts?.[0]?.max_amount_required;
+        const cents = atomic != null ? Number(atomic) / 1e4 : 19900;
         setAmountUsd(`$${(cents / 100).toFixed(2)}`);
       })
       .catch(() => {});
