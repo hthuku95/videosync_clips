@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
+  PeopleAlt as AccountsIcon,
   AddCircleOutline as NewCampaignIcon,
   Settings as SettingsIcon,
 } from '@mui/icons-material';
@@ -28,6 +29,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: 'My Campaigns', icon: <DashboardIcon />, path: PATHS.DASHBOARD },
   { label: 'New Campaign', icon: <NewCampaignIcon />, path: PATHS.CAMPAIGNS_NEW },
+  { label: 'Social Accounts', icon: <AccountsIcon />, path: PATHS.SOCIAL_ACCOUNTS },
 ];
 
 interface SidebarProps {

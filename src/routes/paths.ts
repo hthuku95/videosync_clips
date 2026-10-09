@@ -10,6 +10,7 @@ export const PATHS = {
   CAMPAIGNS_NEW: '/campaigns/new',
   CAMPAIGN_DETAIL: '/campaigns/:id',
   SETTINGS: '/settings',
+  SOCIAL_ACCOUNTS: '/account/social',
 
   NOT_FOUND: '/404',
 } as const;

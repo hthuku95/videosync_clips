@@ -31,11 +31,18 @@ export default function NewCampaignPage() {
   const [accountsLoading, setAccountsLoading] = useState(true);
 
   useEffect(() => {
+    // Sync first: OAuth returns here after connecting and the DB cache only
+    // refreshes via sync — without this, fresh connections stay invisible.
     api
-      .get('/api/social/my-accounts')
-      .then((r) => setAccounts((r.data.accounts || []).filter((a: any) => a.is_active !== false)))
+      .post('/api/social/sync-accounts')
       .catch(() => {})
-      .finally(() => setAccountsLoading(false));
+      .finally(() => {
+        api
+          .get('/api/social/my-accounts')
+          .then((r) => setAccounts((r.data.accounts || []).filter((a: any) => a.is_active !== false)))
+          .catch(() => {})
+          .finally(() => setAccountsLoading(false));
+      });
   }, []);
 
   const toggleAccount = (id: string) =>

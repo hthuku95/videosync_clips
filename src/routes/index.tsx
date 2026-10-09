@@ -11,6 +11,7 @@ import { OAuthCallbackPage } from '@/pages/Auth/OAuthCallbackPage';
 import CampaignsPage from '@/pages/Campaigns/CampaignsPage';
 import NewCampaignPage from '@/pages/Campaigns/NewCampaignPage';
 import CampaignDetailPage from '@/pages/Campaigns/CampaignDetailPage';
+import SocialAccountsPage from '@/pages/Campaigns/SocialAccountsPage';
 import { TermsPage, PrivacyPage, RefundPage, ContactPage } from '@/pages/Legal/LegalPages';
 import { SettingsPage } from '@/pages/Settings/SettingsPage';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
@@ -61,6 +62,14 @@ export const router = createBrowserRouter([
         element: (
           <ErrorBoundary>
             <CampaignDetailPage />
+          </ErrorBoundary>
+        ),
+      },
+      {
+        path: PATHS.SOCIAL_ACCOUNTS,
+        element: (
+          <ErrorBoundary>
+            <SocialAccountsPage />
           </ErrorBoundary>
         ),
       },
