@@ -196,6 +196,15 @@ export function UsdcPayDialog({
         sign one authorization — no tokens move until you approve, and the
         campaign activates automatically once it settles.
       </Typography>
+      <Alert severity="info" sx={{ mb: 2 }}>
+        Your wallet may warn that the payment address (
+        <Typography component="span" variant="caption" sx={{ fontFamily: 'monospace' }}>
+          0xFb97…f478
+        </Typography>
+        ) is new — that is VideoSync's subscription address. Wallets flag every
+        address they haven't seen before; approval is for this payment only
+        (fixed amount, 5-minute expiry).
+      </Alert>
       {error && (
         <Alert severity="error" sx={{ mb: 2 }}>
           {error}
