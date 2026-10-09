@@ -118,12 +118,16 @@ export function HomePage() {
             $199/month
           </Typography>
           <Typography variant="body1" color="text.secondary" paragraph>
-            One subscription. Both services. Up to 3 posts a day across your
-            connected platforms. Cancel anytime.
+            One subscription. Both services. Up to 20 connected accounts and 3
+            posts a day. Cancel anytime.
           </Typography>
           <Button variant="contained" size="large" component={RouterLink} to={PATHS.REGISTER}>
             Get Started
           </Button>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+            Need more accounts? Agency 50 (50 accounts, $499/mo) and Agency 150
+            (150 accounts, $999/mo) are available inside the app after signup.
+          </Typography>
         </CardContent>
       </Card>
     </Container>
