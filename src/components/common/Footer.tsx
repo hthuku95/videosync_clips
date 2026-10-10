@@ -14,11 +14,15 @@ export function Footer({ appName }: FooterProps) {
       component="footer"
       sx={{
         mt: 8,
-        py: 4,
+        py: { xs: 4, md: 5 },
         px: 3,
         borderTop: '1px solid',
         borderColor: 'divider',
-        bgcolor: 'background.paper',
+        bgcolor: (theme) =>
+          theme.palette.mode === 'dark'
+            ? 'rgba(99,102,241,0.06)'
+            : 'rgba(99,102,241,0.05)',
+        width: '100%',
       }}
     >
       <Box
