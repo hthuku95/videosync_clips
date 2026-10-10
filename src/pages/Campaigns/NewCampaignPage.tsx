@@ -24,6 +24,7 @@ export default function NewCampaignPage() {
   const [serviceType, setServiceType] = useState<'kick_auto_clipper' | 'twitch_clipping'>('kick_auto_clipper');
   const [brief, setBrief] = useState('');
   const [sourceUrl, setSourceUrl] = useState('');
+  const [postsPerDay, setPostsPerDay] = useState(5);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [accounts, setAccounts] = useState<Array<{ id: string; platform: string; account_name: string; is_active: boolean; profile_id?: string | null }>>([]);
@@ -93,7 +94,7 @@ export default function NewCampaignPage() {
           { time: '17:00', platform: 'youtube' },
         ],
         platforms,
-        posts_per_day: 3,
+        posts_per_day: postsPerDay,
         start_date: new Date(todayStr()).toISOString(),
         end_date: new Date(todayStr(30)).toISOString(),
         zernio_profile_id: profileId,
@@ -203,6 +204,20 @@ export default function NewCampaignPage() {
               ))}
             </Box>
           </Box>
+          <TextField
+            select
+            label="Posts per day"
+            value={postsPerDay}
+            onChange={(e) => setPostsPerDay(Math.min(10, Math.max(1, Number(e.target.value))))}
+            fullWidth
+            helperText="Each post is a full render (~10-25 min). 5/day is the recommended pace."
+          >
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+              <MenuItem key={n} value={n}>
+                {n} post{n > 1 ? 's' : ''} per day
+              </MenuItem>
+            ))}
+          </TextField>
           <Button variant="contained" size="large" onClick={submit} disabled={submitting}>
             {submitting ? 'Creating…' : 'Create Campaign'}
           </Button>
