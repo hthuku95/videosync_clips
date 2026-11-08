@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box, Typography, TextField, Button, Card, CardContent, MenuItem, Alert, CircularProgress,
-  FormGroup, FormControlLabel, Checkbox, CircularProgress,
+  FormGroup, FormControlLabel, Checkbox,
 } from '@mui/material';
 import { api } from '@/services/api';
 import { campaignService } from '@/services/campaign.service';
@@ -250,7 +250,6 @@ export default function NewCampaignPage() {
           </Button>
         </CardContent>
       </Card>
-    </Box>
       </>
       )}
     </Box>
