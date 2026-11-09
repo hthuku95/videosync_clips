@@ -7,6 +7,7 @@ import {
 import { api } from '@/services/api';
 import { campaignService } from '@/services/campaign.service';
 import { getFeatureFlags } from '@/services/features.service';
+import { CampaignComingSoon } from '@/components/marketing/CampaignComingSoon';
 
 const SERVICES = [
   { value: 'kick_auto_clipper', label: 'Kick Auto-Clipper', hint: 'Kick streamer VODs or clip channels' },
@@ -132,12 +133,7 @@ export default function NewCampaignPage() {
       {flagsLoading ? (
         <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}><CircularProgress /></Box>
       ) : !campaignsEnabled ? (
-        <Alert severity="info" sx={{ mb: 2 }}>
-          <Typography variant="body2" fontWeight={700}>Monthly campaigns — coming soon</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {campaignsMessage || 'Monthly campaigns are coming soon. One-time bundles (10 videos for $50 or 30 for $100) are available in the meantime.'}
-          </Typography>
-        </Alert>
+        <CampaignComingSoon message={campaignsMessage} />
       ) : (
       <>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
